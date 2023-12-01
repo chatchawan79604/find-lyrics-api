@@ -29,7 +29,7 @@ def transcript_handler(request: HttpRequest):
             return JsonResponse(status=400, data={"error": "%s" % e})
 
         return JsonResponse(dict(
-            data=songs
+            data={ **song_lyric['data'], "songs": songs,}
         ), status=201,)
 
     # not supported
